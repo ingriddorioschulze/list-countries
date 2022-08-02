@@ -1,12 +1,13 @@
 import React from 'react'
+
+import CountriesCard from './CountriesCard'
 import Header from './Header'
-import Homepage from './Homepage'
 
 const App: React.FC = (): JSX.Element => {
   return (
     <div className="App">
       <Header />
-      <Homepage />
+      <CountriesCard/>
     </div>
   )
 }
