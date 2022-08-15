@@ -1,4 +1,3 @@
-// cards on homepage with country flag, name, population, region and capital
 import React, { useState, useEffect } from "react";
 import CountryCard from "./CountryCard";
 import FilterCountries from "./FilterCountries";
@@ -8,25 +7,25 @@ import getAllCountries, { CountriesData } from "./utils";
 const Homepage: React.FC = (): JSX.Element => {
   const [countries, setCountries] = useState<CountriesData[]>([]);
   const [loading, setLoading] = useState(true);
-  const [search, setSearch] = useState("");
-  const [selectedOption, setSelectedOption] = useState("")
+  const [searchCountry, setSearchedCountry] = useState("");
+  const [filterRegion, setFilteredRegion] = useState("")
 
   useEffect(() => {
     setLoading(true);
     setCountries([]);
-    getAllCountries(search).then((countries) => {
+    getAllCountries(searchCountry, filterRegion).then((countries) => {
       setCountries(countries);
       setLoading(false);
     });
-  }, [search]);
+  }, [searchCountry, filterRegion]);
 
 
   return (
     <div>
-      <FilterCountries 
-      selectedOption={selectedOption} 
-      setSelectedOption={setSelectedOption}/>
-      <SearchCountries search={search} setSearch={setSearch} />
+      <FilterCountries
+      filterRegion={filterRegion} 
+      setFilteredRegion={setFilteredRegion}/>
+      <SearchCountries searchCountry={searchCountry} setSearchedCountry={setSearchedCountry} />
       {countries.map((country, index) => (
         <CountryCard
           key={index}
