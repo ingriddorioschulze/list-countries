@@ -14,9 +14,10 @@ export type CountriesData = {
   flag: string
 }
 
-export default async function getAllCountries(search: string) : Promise<CountriesData[]> {
+export default async function getAllCountries(searchCountry: string, filterRegion: string) : Promise<CountriesData[]> {
 const response = await axios.get<CountriesData[]>('https://restcountries.com/v2/all')
     return response.data.filter(country => {
-      return country.name.toLowerCase().includes(search.toLowerCase())
+      return country.name.toLowerCase().includes(searchCountry.toLowerCase()) 
+        && country.region.toLowerCase().includes(filterRegion.toLowerCase())
     })
 }
