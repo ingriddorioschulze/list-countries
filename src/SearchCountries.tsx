@@ -1,22 +1,29 @@
-import React from 'react'
-
+import React from "react";
 
 type SearchProperties = {
-    search: string
-    setSearch: (search: string) => unknown
-}
+  searchCountry: string;
+  setSearchedCountry: (searchCountry: string) => unknown;
+};
 
-const SearchCountries: React.FC<SearchProperties> = (props: SearchProperties): JSX.Element => {
-
-    const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        props.setSearch(event.currentTarget.value)
-      }
+const SearchCountries: React.FC<SearchProperties> = (
+  props: SearchProperties
+): JSX.Element => {
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    props.setSearchedCountry(event.currentTarget.value);
+  };
 
   return (
     <div>
-        <input placeholder="search countries" type="search" id="search" name="search" value={props.search} onChange={handleSearchChange}/>
+      <input
+        placeholder="search countries"
+        type="search"
+        id="search"
+        name="search"
+        value={props.searchCountry}
+        onChange={handleSearchChange}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default SearchCountries
+export default SearchCountries;

@@ -1,23 +1,28 @@
-import React from 'react'
+import React from "react";
 
 type FilterProperties = {
-    selectedOption: string
-    setSelectedOption: (selectedOption: string) => unknown
-}
+  filterRegion: string;
+  setFilteredRegion: (filterRegion: string) => unknown;
+};
 
-const FilterCountries: React.FC<FilterProperties> = (props: FilterProperties): JSX.Element => {
-  
-    const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-        props.setSelectedOption(event.target.value)
-      }  
-return (
+const FilterCountries: React.FC<FilterProperties> = (
+  props: FilterProperties
+): JSX.Element => {
+  const handleFilterChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    props.setFilteredRegion(event.target.value);
+  };
+  return (
     <div>
-        <select value={props.selectedOption} onChange={handleFilterChange}>
-            <option>Sort by Region</option>
-            <option value={""}>{""}</option>
-        </select>
+      <select value={props.filterRegion} onChange={handleFilterChange}>
+        <option value="Filter by Region">Sort by Region</option>
+        <option value="Africa">Africa</option>
+        <option value="Americas">Americas</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Oceania">Oceania</option>
+      </select>
     </div>
-  )
-}
+  );
+};
 
-export default FilterCountries
+export default FilterCountries;
