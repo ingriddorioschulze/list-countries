@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
 
 const Header: React.FC = (): JSX.Element => {
-  return <div>list countries</div>
-}
+  return (
+    <div>
+      <p>list countries</p>
+      <button>Change Theme</button>
+    </div>
+  );
+};
 
-export default Header
+export default Header;

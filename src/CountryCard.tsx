@@ -16,6 +16,8 @@ const CountryCard: React.FC<CountryCardProperties> = (props:CountryCardPropertie
       <p>{props.countryPopulation}</p>
       <p>{props.countryRegion}</p>
       <p>{props.countryCapital}</p>
+      <button onClick={() => console.log("hallos")}>Learn More</button>
+      
     </div>
   );
 };
